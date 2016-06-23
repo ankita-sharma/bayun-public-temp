@@ -1,8 +1,8 @@
 ## Get Started
 
-Introduction about th library......
+Introduction about the library......
 
-## BayunCoreSDK
+## BayunCore SDK
 
 description....
 
@@ -30,23 +30,6 @@ description....
 * `decrypt`
 
 
-## Bayun S3
-
-Sample code that overrides metohds from AWS S3 SDK and encrypts a file before uploading it to an S3 bucket.
-
-#### iOS
-
-- `SecureAWSS3Service.h` overrides S3 
-
-- `SecureAWSS3TransferManager.h`
-
-#### Android
-
-## Bayun S3 Wrapper
-
-- `classes`
-
-
 ## Bayun RC
 
 Description....
@@ -56,5 +39,25 @@ Description....
 - `classes`
 
 #### Android
+
+- `classes`
+
+
+## Bayun S3
+
+Sample code that overrides metohds from AWS S3 SDK and encrypts a file before uploading it to an S3 bucket.
+
+#### iOS
+
+- `SecureAWSS3Service.h` overrides S3
+
+- `SecureAWSS3TransferManager.h`
+
+#### Android
+
+- `classes`
+
+
+## Bayun S3 Wrapper
 
 - `classes`
