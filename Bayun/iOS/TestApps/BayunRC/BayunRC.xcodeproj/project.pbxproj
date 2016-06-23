@@ -110,6 +110,8 @@
 		1EADA2931D1BE05A00B669B4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EADA2311D1BE05A00B669B4 /* User.m */; };
 		1EADA29B1D1BE24300B669B4 /* BayunRC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EADA2991D1BE24300B669B4 /* BayunRC.xcdatamodeld */; };
 		1EADA2A11D1BE99500B669B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EADA2A01D1BE99500B669B4 /* Images.xcassets */; };
+		1ED540DA1D1C0A350026AEAB /* Bayun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED540D91D1C0A350026AEAB /* Bayun.framework */; };
+		1ED540DB1D1C0A350026AEAB /* Bayun.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED540D91D1C0A350026AEAB /* Bayun.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64EDC532449E73F794A3E6B1 /* libPods-BayunRC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C3616846EE2C84FADA826A /* libPods-BayunRC.a */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1ED540DB1D1C0A350026AEAB /* Bayun.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +345,7 @@
 		1EADA2941D1BE10E00B669B4 /* BayunRC.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BayunRC.pch; sourceTree = "<group>"; };
 		1EADA29A1D1BE24300B669B4 /* Bayun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bayun.xcdatamodel; sourceTree = "<group>"; };
 		1EADA2A01D1BE99500B669B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1ED540D91D1C0A350026AEAB /* Bayun.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bayun.framework; sourceTree = "<group>"; };
 		32C3616846EE2C84FADA826A /* libPods-BayunRC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BayunRC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F731AA3ADF6560C43A50D7 /* Pods-BayunRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayunRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayunRC/Pods-BayunRC.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1E4D5CA9C6AA61EAEAA0F8 /* Pods-BayunRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayunRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayunRC/Pods-BayunRC.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED540DA1D1C0A350026AEAB /* Bayun.framework in Frameworks */,
 				64EDC532449E73F794A3E6B1 /* libPods-BayunRC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +381,7 @@
 		1EA9C87D1D1BDFF600BCFCB9 = {
 			isa = PBXGroup;
 			children = (
+				1ED540D91D1C0A350026AEAB /* Bayun.framework */,
 				1EA9C8881D1BDFF600BCFCB9 /* BayunRC */,
 				1EA9C8A51D1BDFF600BCFCB9 /* BayunRCTests */,
 				1EA9C8B01D1BDFF600BCFCB9 /* BayunRCUITests */,
