@@ -11,8 +11,7 @@
 #import "User.h"
 #import "Sender.h"
 #import "Receiver.h"
-#import <Bayun/BayunCore.h>
-
+#import "RCCryptManager.h"
 
 @interface RCMessage()
 
@@ -36,29 +35,8 @@
 }
 
 -(NSString *)text {
-    NSString *peerExtension ;
-    if ([self.message.direction isEqualToString:@"Outbound"]) {
-        peerExtension = [[self.message.to lastObject] extension];
-    } else {
-        peerExtension = self.message.from.extension;
-    }
     
-    //Decrypt the message using Bayun library before returning it.
-    __block NSString *decryptedTextMessage;
-    [[BayunCore sharedInstance]decryptText:self.message.subject success:^(NSString *decryptedMessage) {
-        if (decryptedMessage == nil || [decryptedMessage isEqualToString:@""]) {
-            decryptedTextMessage = self.message.subject;
-        } else {
-            decryptedTextMessage = decryptedMessage;
-        }
-    } failure:^(BayunError errorCode) {
-        //error code might be BayunErrorUserInActive (if user is not active or cancelled by admin),
-        //BayunErrorDecryptionFailed (if decryption could not be done)
-        //In the sample app,the message is being returned as is in case of decryption failure
-        decryptedTextMessage = self.message.subject;
-    }];
-
-    return decryptedTextMessage;
+    return [[RCCryptManager sharedInstance] decryptText:self.message.subject ];
 }
 
 -(NSString *)senderId {

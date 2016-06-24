@@ -14,8 +14,7 @@
 #import "RCAPIManager.h"
 #import "RCConfig.h"
 #import <AVFoundation/AVFoundation.h>
-#import <Bayun/BayunCore.h>
-
+#import "RCCryptManager.h"
 
 @interface ConversationViewController ()<UITextViewDelegate>
 
@@ -89,11 +88,7 @@
     
     [[NSRunLoop mainRunLoop] addTimer:self.timerToRefreshMessages
                               forMode:NSDefaultRunLoopMode];
-    
-    if ([BayunCore sharedInstance].employeeStatus == BayunEmployeeStatusRegistered ||
-         [BayunCore sharedInstance].employeeStatus == BayunEmployeeStatusCancelled) {
-        [SVProgressHUD showErrorWithStatus:kErrorUserInActive];
-    }
+
 }
 
 
@@ -254,7 +249,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kIsAccessDenied];
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self setSendingMessage];
-    NSString *messageToSend = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *message = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
 
@@ -267,23 +262,14 @@
     [parameters setObject:recipientArray forKey:@"to"];
     [parameters setObject:sender forKey:@"from"];
     
-    //Encrypt the message using Bayun Library before sending
-    [[BayunCore sharedInstance]encryptText:messageToSend success:^(NSString *encryptedMessage) {
-         [parameters setObject:encryptedMessage  forKey:@"text"];
-         [self sendMessage:parameters];
-     } failure:^(BayunError errorCode) {
-         if (errorCode == BayunErrorAccessDenied) {
-             if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsAccessDenied]) {
-                 [SVProgressHUD showErrorWithStatus:kErrorAccessDenied];
-                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsAccessDenied];
-                 [[NSUserDefaults standardUserDefaults]synchronize];
-             }
-         } else if (errorCode == BayunErrorUserInActive) {
-             [SVProgressHUD showErrorWithStatus:kErrorUserInActive];
-         } else {
-             [SVProgressHUD showErrorWithStatus:kErrorSomethingWentWrong];
-         }
-     }];
+    
+   NSString *encryptedMessage =  [[RCCryptManager sharedInstance] encryptText:message];
+    if (encryptedMessage) {
+        [parameters setObject:encryptedMessage  forKey:@"text"];
+        [self sendMessage:parameters];
+    } else {
+        [SVProgressHUD showErrorWithStatus:kErrorMessageCouldNotBeSent];
+    }
 }
 
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath {

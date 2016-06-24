@@ -33,4 +33,5 @@ extern NSString *const kErrorIncorrectPasscode;
 extern NSString *const kErrorInvalidCredentials;
 extern NSString *const kErrorSessionIsExpired;
 extern NSString *const kErrorCompleteAllFields;
+extern NSString *const kErrorMessageCouldNotBeSent;
 @end

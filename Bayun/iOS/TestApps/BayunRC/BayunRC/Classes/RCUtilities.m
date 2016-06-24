@@ -73,10 +73,10 @@
 }
 
 /**
- Clears the App Id
+ Returns AppId
  */
 + (NSString*)appId {
-    return @"com.bayun";
+    return @"com.bayun.BayunRC";
 }
 
 /**

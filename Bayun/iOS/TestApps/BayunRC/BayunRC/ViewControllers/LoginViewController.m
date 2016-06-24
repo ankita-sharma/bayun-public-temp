@@ -120,6 +120,10 @@
                 } failure:^(NSUInteger errorCode) {
                     if (errorCode == BayunErrorUserInActive) {
                         [SVProgressHUD showErrorWithStatus:kErrorUserInActive];
+                    } else if (errorCode == BayunErrorInvalidCredentials){
+                        [SVProgressHUD showErrorWithStatus:kErrorInvalidCredentials];
+                    } else if (errorCode == BayunErrorInvalidPasscode){
+                        [SVProgressHUD showErrorWithStatus:kErrorIncorrectPasscode];
                     } else {
                         [SVProgressHUD showErrorWithStatus:kErrorSomethingWentWrong];
                     }

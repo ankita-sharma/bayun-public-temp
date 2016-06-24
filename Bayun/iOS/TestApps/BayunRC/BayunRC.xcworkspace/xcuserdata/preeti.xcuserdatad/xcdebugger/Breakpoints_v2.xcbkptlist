@@ -73,13 +73,13 @@
                   symbolName = "-[RCAPIManager loginWithCredentials:success:failure:]"
                   moduleName = "BayunRC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/preeti/Desktop/BayunRC/BayunRC/Classes/RCAPIManager.m"
-                  timestampString = "488367973.685659"
+                  urlString = "file:///Users/preeti/bayun-public-temp/Bayun/iOS/TestApps/BayunRC/BayunRC/Classes/RCAPIManager.m"
+                  timestampString = "488452791.464668"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "833">
+                  offsetFromSymbolStart = "822">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -88,15 +88,47 @@
                   symbolName = "__53-[RCAPIManager loginWithCredentials:success:failure:]_block_invoke"
                   moduleName = "BayunRC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/preeti/Desktop/BayunRC/BayunRC/Classes/RCAPIManager.m"
-                  timestampString = "488367973.685786"
+                  urlString = "file:///Users/preeti/bayun-public-temp/Bayun/iOS/TestApps/BayunRC/BayunRC/Classes/RCAPIManager.m"
+                  timestampString = "488452791.464795"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "33">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BayunRC/Classes/RCCryptManager.m"
+            timestampString = "488451646.234789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-encryptText:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BayunRC/Classes/RCCryptManager.m"
+            timestampString = "488451652.271822"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-decryptText:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

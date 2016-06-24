@@ -16,8 +16,8 @@
 #import "User.h"
 #import "ExtensionListViewController.h"
 #import "ConversationViewController.h"
+#import "RCCryptManager.h"
 
-#import <Bayun/BayunCore.h>
 
 @interface ConversationListViewController ()<NSFetchedResultsControllerDelegate,UIActionSheetDelegate>
 
@@ -273,19 +273,8 @@
     
     [cell.messageLabel setText:conversation.lastMessage.subject];
     
-    //If employee status is Registered or Cancelled, the message is shown as is else message is decrypted.
-    if ([BayunCore sharedInstance].employeeStatus != BayunEmployeeStatusRegistered &&
-        [BayunCore sharedInstance].employeeStatus != BayunEmployeeStatusCancelled ) {
-        
-        //Decrypt the message using Bayun Library before displaying 
-        [[BayunCore sharedInstance]decryptText:conversation.lastMessage.subject success:^(NSString *decryptedMessage) {
-            [cell.messageLabel setText:decryptedMessage];
-        } failure:^(BayunError errorCode) {
-            if (errorCode == BayunErrorUserInActive) {
-                [SVProgressHUD showErrorWithStatus:kErrorUserInActive];
-            }
-        }];
-    }
+    [cell.messageLabel setText:[[RCCryptManager sharedInstance] decryptText :conversation.lastMessage.subject ]];
+    
     [cell.timeStampLabel setText:[RCUtilities getCurrentTimeStampDateString:conversation.lastMessage.creationTime]];
     return cell;
 }
